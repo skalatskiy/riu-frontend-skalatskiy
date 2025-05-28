@@ -1,5 +1,23 @@
 <div class="heroes-container">
-    <button mat-flat-button class="add-hero-button" (click)="openHeroForm()">Add hero</button>
+    <div class="heroes-actions">
+        <div [formGroup]="searchForm">
+            <mat-form-field class="search-field">
+                <mat-label>Search by name</mat-label>
+                <input matInput 
+                    #searchInput 
+                    formControlName="searchControl"
+                    name="search"
+                    (keydown.enter)="onSearch(searchInput.value)" 
+                >
+                @if (searchInput.value) {
+                    <button mat-icon-button matSuffix aria-label="Clear" (click)="clearSearch()">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                }
+            </mat-form-field>
+        </div>
+        <button mat-flat-button class="add-hero-button" (click)="openHeroForm()">Add hero</button>
+    </div>
     <div class="heroes-list">
         @for (hero of pagedHeroes; track hero) {
             <app-hero-card [hero]="hero" />
