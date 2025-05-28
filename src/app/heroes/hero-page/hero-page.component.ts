@@ -35,9 +35,7 @@ export class HeroPageComponent {
     const heroId = this.route.snapshot.paramMap.get('heroId');
 
     if(heroId) {
-      console.log('heroId: ', heroId);
       this.hero = this.heroesService.getHero(heroId);
-      console.log('hero: ', this.hero);
     } else {
       throw new Error('No user found with this ID');
     }

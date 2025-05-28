@@ -68,4 +68,14 @@ const dummyHeroes: Hero[] = [
 
         return of(true);
     }
+
+    deleteHero(heroId: string) {
+        const heroes = this.heroes();
+        const indexToDelete = heroes.findIndex((hero) => hero.id === heroId);
+        heroes.splice(indexToDelete, 1);
+
+        this.heroes.set([...heroes]);
+
+        return of(true);
+    }
   }
