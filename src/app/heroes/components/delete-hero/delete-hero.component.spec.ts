@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { DeleteHeroComponent } from './delete-hero.component';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { DeleteHeroComponent } from './delete-hero.component';
 
 describe('DeleteHeroComponent', () => {
   let component: DeleteHeroComponent;

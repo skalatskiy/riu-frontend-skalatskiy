@@ -1,7 +1,7 @@
 import { PageEvent } from "@angular/material/paginator";
+import { TestBed } from "@angular/core/testing";
 import { Hero } from "../schemas/hero.interface";
 import { HeroesService } from "./heroes.service";
-import { TestBed } from "@angular/core/testing";
 
 const generateMockHeroes = (wantedHeroes: number): Hero[] => {
     const generatedHeroes: Hero[] = [];
