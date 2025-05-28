@@ -1,0 +1,16 @@
+<div class="heroes-container">
+    <h1>Welcome to our Heroes directory!</h1>
+    <div class="heroes-list">
+        @for (hero of heroes; track hero) {
+            <app-hero-card [hero]="hero" />
+        }
+    </div>
+    <mat-paginator #paginator
+        class="heroes-paginator"
+        aria-label="Select page"
+        [length]="pagination.length"
+        [pageIndex]="pagination.pageIndex"
+        [pageSize]="pagination. pageSize"
+        (page)="onPageChange($event)"
+    />
+</div>

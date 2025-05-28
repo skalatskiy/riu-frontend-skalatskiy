@@ -1,0 +1,14 @@
+.heroes-container {
+    padding: 20px;
+    gap: 10px;
+}
+
+.heroes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.heroes-paginator {
+    margin-top: 20px;
+}
