@@ -20,7 +20,6 @@ export class DeleteHeroComponent {
   ) {}
 
   onDelete() {
-    console.log('onDelete');
     this.heroesService.deleteHero(this.data.id).subscribe({
       next: (success) => {
         if (success) {
@@ -31,7 +30,6 @@ export class DeleteHeroComponent {
   }
 
   onCancel() {
-    console.log('onCancel');
     this.dialog.closeAll();
   }
 }
