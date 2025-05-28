@@ -35,6 +35,14 @@ const dummyHeroes: Hero[] = [
         return [...this.heroes().slice(startIndex, endIndex)];
     }
 
+    searchByName(valueToSearch: string, pageEvent: PageEvent): Hero[] {
+        const filteredHeroes = this.heroes().filter((hero) => hero.name.toLowerCase().includes(valueToSearch.toLowerCase()));
+        const startIndex = (pageEvent.pageIndex) * pageEvent.pageSize;
+        const endIndex = startIndex + pageEvent.pageSize;
+        
+        return [...filteredHeroes.slice(startIndex, endIndex)];
+    }
+
     createNewHero(newHero: Hero): Observable<boolean> {
         this.heroes.update(heroes => {
             return [...heroes, newHero];
