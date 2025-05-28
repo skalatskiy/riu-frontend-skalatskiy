@@ -1,0 +1,8 @@
+.details-section {
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+}
+.details-card {
+    max-width: 500px;
+}

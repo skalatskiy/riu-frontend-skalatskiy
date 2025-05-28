@@ -8,6 +8,7 @@ const generateMockHeroes = (wantedHeroes: number): Hero[] => {
 
     for(let i = 0; i < wantedHeroes; i++) {
         generatedHeroes.push({
+            id: `Hero-id-${i}`,
             name: `Hero name ${i}`,
             superpower: `Hero superpower ${i}`,
             alive: false
