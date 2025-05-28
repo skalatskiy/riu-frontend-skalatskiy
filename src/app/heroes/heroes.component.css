@@ -3,6 +3,11 @@
     gap: 10px;
 }
 
+.add-hero-button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 .heroes-list {
     display: flex;
     flex-direction: column;
