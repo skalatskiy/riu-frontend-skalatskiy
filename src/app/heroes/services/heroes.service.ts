@@ -18,7 +18,7 @@ const dummyHeroes: Hero[] = [
         superpower: "Spider strength",
         imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9dEhbjgmjNQc_JAJJYvv4waAPpHilh4Ps8A&s",
         description: "Saca telaraña de sitios dudosos",
-        alive: true
+        alive: false
     }
 ];
 
@@ -47,5 +47,17 @@ const dummyHeroes: Hero[] = [
         return this.heroes().find((hero) => {
             return hero.id === heroId;
         });
+    }
+
+    editHero(heroId: string, newHeroData: Hero): Observable<boolean>  {
+        newHeroData.id = heroId;
+
+        const heroes = this.heroes();
+        const indexToUpdate = heroes.findIndex((hero) => hero.id === heroId);
+        heroes[indexToUpdate] = newHeroData;
+
+        this.heroes.set([...heroes]);
+
+        return of(true);
     }
   }
