@@ -4,6 +4,7 @@ import { HeroCardComponent } from './hero-card.component';
 import { Hero } from '../schemas/hero.interface';
 
 const dummyHero: Hero = {
+  id: "superdummy",
   name: "Dummy hero",
   superpower: "test powers",
   alive: true

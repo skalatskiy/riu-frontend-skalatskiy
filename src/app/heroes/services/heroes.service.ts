@@ -5,14 +5,18 @@ import { Observable, of } from "rxjs";
 
 const dummyHeroes: Hero[] = [
     {
+        id: 'dummy1',
         name: "Pacoman",
         superpower: "humor",
+        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f2/Lucas-Paco-Mariano.jpg",
         description: "Te mata de risa",
         alive: true
     },
     {
+        id: 'dummy2',
         name: "Spideman",
         superpower: "Spider strength",
+        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9dEhbjgmjNQc_JAJJYvv4waAPpHilh4Ps8A&s",
         description: "Saca telaraña de sitios dudosos",
         alive: true
     }
@@ -37,5 +41,11 @@ const dummyHeroes: Hero[] = [
         });
 
         return of(true);
+    }
+
+    getHero(heroId: string): Hero | undefined {
+        return this.heroes().find((hero) => {
+            return hero.id === heroId;
+        });
     }
   }

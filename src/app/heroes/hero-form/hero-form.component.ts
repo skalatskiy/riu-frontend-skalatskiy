@@ -4,9 +4,12 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import {v4 as uuid} from 'uuid';
 import { Hero } from '../schemas/hero.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+
+const defaultImageUrl = "https://www.shutterstock.com/image-vector/generic-superhero-figure-standing-proud-260nw-303136100.jpg";
 
 @Component({
   selector: 'app-hero-form',
@@ -38,9 +41,10 @@ export class HeroFormComponent {
       const alive = this.heroForm.get('alive')?.value;
 
       const newHero: Hero = {
+        id: uuid(),
         name, 
         superpower,
-        imageUrl,
+        imageUrl: imageUrl || defaultImageUrl,
         description,
         alive
       } 
