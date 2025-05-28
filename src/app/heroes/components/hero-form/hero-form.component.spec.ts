@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeroFormComponent } from './hero-form.component';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 describe('HeroFormComponent', () => {
   let component: HeroFormComponent;
@@ -8,7 +9,11 @@ describe('HeroFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HeroFormComponent]
+      imports: [HeroFormComponent],
+      providers: [
+        { provide: MAT_DIALOG_DATA, useValue: {} },
+        { provide: MatDialogRef, useValue: {} }
+      ]
     })
     .compileComponents();
 
