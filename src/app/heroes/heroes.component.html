@@ -1,7 +1,8 @@
 <div class="heroes-container">
     <h1>Welcome to our Heroes directory!</h1>
+    <button mat-flat-button class="add-hero-button" (click)="openHeroForm()">Add hero</button>
     <div class="heroes-list">
-        @for (hero of heroes; track hero) {
+        @for (hero of pagedHeroes; track hero) {
             <app-hero-card [hero]="hero" />
         }
     </div>

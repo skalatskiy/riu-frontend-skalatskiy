@@ -1,0 +1,38 @@
+<div class="form-container">
+    <h2>Creating a new hero!</h2>
+    <form [formGroup]="heroForm" class="hero-form">
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" required>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Superpower</mat-label>
+            <input matInput formControlName="superpower" required>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Any fancy photo? (url)</mat-label>
+            <input matInput formControlName="imageUrl">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Still alive?</mat-label>
+            <mat-select formControlName="alive">
+              <mat-option value="true">100%</mat-option>
+              <mat-option value="false">Not really</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+
+    <div class="buttons-container">
+        <button 
+            mat-flat-button 
+            type="submit" 
+            [disabled] ="!heroForm.valid"
+            (click)="onSave()"
+        >Create</button>
+        <button mat-stroked-button (click)="onCancel()">Cancel</button>
+    </div>
+</div>

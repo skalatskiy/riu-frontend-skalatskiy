@@ -3,7 +3,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { Hero } from '../schemas/hero.interface';
 import { MatCardModule } from '@angular/material/card';
 
-const defaultImageUrl = "https://material.angular.dev/assets/img/examples/shiba2.jpg";
+const defaultImageUrl = "https://www.shutterstock.com/image-vector/generic-superhero-figure-standing-proud-260nw-303136100.jpg";
 
 @Component({
   selector: 'app-hero-card',

@@ -1,30 +1,40 @@
 import { HeroesService } from './services/heroes.service';
-import { Component, inject } from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
 import {MatPaginatorModule, PageEvent} from '@angular/material/paginator';
 import { Hero } from './schemas/hero.interface';
 import { MatListModule } from '@angular/material/list';
 import { HeroCardComponent } from './hero-card/hero-card.component';
+import { MatDialog } from '@angular/material/dialog';
+import { HeroFormComponent } from './hero-form/hero-form.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-heroes',
-  imports: [MatListModule, MatPaginatorModule, HeroCardComponent],
+  imports: [MatListModule, MatPaginatorModule, HeroCardComponent, MatButtonModule],
   templateUrl: './heroes.component.html',
   styleUrl: './heroes.component.css'
 })
 export class HeroesComponent {
   
-  heroes: Hero[] = [];
+  pagedHeroes: Hero[] = [];
   pagination: PageEvent = {
     length: 50,
-    pageSize: 1,
+    pageSize: 2,
     pageIndex: 0
   }
 
   private heroesService: HeroesService = inject(HeroesService);
 
+  constructor(private dialog: MatDialog) {
+    effect(() => {
+      if (this.heroesService.heroes()) {
+        this.getPagedHeroes();
+      }
+    })
+  }
+
   ngOnInit() {
-    console.log('HeroesComponent');
-    this.initHeroes();
+    this.getPagedHeroes();
   }
 
   onPageChange(pageEvent: PageEvent) {
@@ -34,11 +44,15 @@ export class HeroesComponent {
       pageIndex: pageEvent.pageIndex
     }
 
-    this.heroes = this.heroesService.getPagedHeroes(pageEvent);
+    this.getPagedHeroes();
   }
 
-  private initHeroes() {
-    this.heroes = this.heroesService.getHeroes();
-    this.pagination.length = this.heroes.length;
+  openHeroForm() {
+    this.dialog.open(HeroFormComponent);
+  }
+
+  private getPagedHeroes() {
+    this.pagedHeroes = this.heroesService.getPagedHeroes(this.pagination);
+    this.pagination.length = this.heroesService.heroes().length;
   }
 }
