@@ -1,6 +1,7 @@
-import { Injectable, signal, Signal } from "@angular/core";
+import { Injectable, signal, WritableSignal } from "@angular/core";
 import { Hero } from "../schemas/hero.interface";
 import { PageEvent } from "@angular/material/paginator";
+import { Observable, of } from "rxjs";
 
 const dummyHeroes: Hero[] = [
     {
@@ -21,16 +22,20 @@ const dummyHeroes: Hero[] = [
     providedIn: 'root'
   })
   export class HeroesService {
-    heroes: Signal<Hero[]> = signal(dummyHeroes);
-
-    getHeroes(): Hero[] {
-        return this.heroes();
-    }
+    heroes: WritableSignal<Hero[]> = signal(dummyHeroes);
 
     getPagedHeroes(pageEvent: PageEvent): Hero[] {
         const startIndex = (pageEvent.pageIndex) * pageEvent.pageSize;
         const endIndex = startIndex + pageEvent.pageSize;
         
         return [...this.heroes().slice(startIndex, endIndex)];
+    }
+
+    createNewHero(newHero: Hero): Observable<boolean> {
+        this.heroes.update(heroes => {
+            return [...heroes, newHero];
+        });
+
+        return of(true);
     }
   }

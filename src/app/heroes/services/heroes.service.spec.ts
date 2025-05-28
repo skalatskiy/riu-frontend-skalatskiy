@@ -26,10 +26,6 @@ const generateMockHeroes = (wantedHeroes: number): Hero[] => {
       service.heroes = generatedHeroes;
     });
 
-    it('getHeroes should return an array of heroes', () => {
-      expect(service.getHeroes()).toEqual(jasmine.any(Array<Hero>));
-    });
-
     it('getPagedHeroes should return a sliced array of heroes', () => {
         const expectedPageLength = 7;
         const mockPageEvent: PageEvent = {
