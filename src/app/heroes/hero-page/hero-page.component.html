@@ -1,0 +1,25 @@
+<button mat-button (click)="onBack()">Back to list</button>
+<section class="details-section">
+    @if (hero) {
+        <mat-card class="details-card" appearance="raised">
+            <mat-card-header>
+              <div mat-card-avatar></div>
+              <mat-card-title>{{hero.name}}</mat-card-title>
+              <mat-card-subtitle>{{hero.superpower}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="{{hero.imageUrl}}" alt="Photo of a Superhero">
+            <mat-card-content>
+              <p>
+                {{hero.description}}
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button>Edit</button>
+              <button mat-button>Delete</button>
+            </mat-card-actions>
+        </mat-card>
+    }
+    @else {
+        <h4>There is no superhero with this ID</h4>
+    }   
+</section>

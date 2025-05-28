@@ -1,0 +1,15 @@
+.form-container {
+    padding: 20px;
+}
+
+.hero-form {
+    display: flex;
+    flex-direction: column;
+    
+    gap: 20px;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-between;
+}
