@@ -61,7 +61,7 @@ export class HeroFormComponent {
         alive: formData.alive
       } 
 
-      this.heroesService.createNewHero(newHero).subscribe({
+      this.heroesService.createHero(newHero).subscribe({
         next: (success) => {
           if (success) {
             this.dialog.closeAll();
@@ -87,7 +87,7 @@ export class HeroFormComponent {
         alive: formData.alive
       } 
 
-      this.heroesService.editHero(this.data.id, newHeroData).subscribe({
+      this.heroesService.updateHero(this.data.id, newHeroData).subscribe({
         next: (success) => {
           if (success) {
             this.dialog.closeAll();

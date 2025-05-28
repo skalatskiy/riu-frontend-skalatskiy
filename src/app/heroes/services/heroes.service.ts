@@ -43,7 +43,13 @@ const dummyHeroes: Hero[] = [
         return [...filteredHeroes.slice(startIndex, endIndex)];
     }
 
-    createNewHero(newHero: Hero): Observable<boolean> {
+    getHero(heroId: string): Hero | undefined {
+        return this.heroes().find((hero) => {
+            return hero.id === heroId;
+        });
+    }
+
+    createHero(newHero: Hero): Observable<boolean> {
         this.heroes.update(heroes => {
             return [...heroes, newHero];
         });
@@ -51,13 +57,7 @@ const dummyHeroes: Hero[] = [
         return of(true);
     }
 
-    getHero(heroId: string): Hero | undefined {
-        return this.heroes().find((hero) => {
-            return hero.id === heroId;
-        });
-    }
-
-    editHero(heroId: string, newHeroData: Hero): Observable<boolean>  {
+    updateHero(heroId: string, newHeroData: Hero): Observable<boolean>  {
         newHeroData.id = heroId;
 
         const heroes = this.heroes();
