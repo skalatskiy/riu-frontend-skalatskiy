@@ -1,5 +1,5 @@
 <div class="form-container">
-    <h2>Creating a new hero!</h2>
+    <h2>{{isEdit ? `Editing ${data.name}` : "Creating a new hero!"}}</h2>
     <form [formGroup]="heroForm" class="hero-form">
         <mat-form-field>
             <mat-label>Name</mat-label>
@@ -31,8 +31,10 @@
             mat-flat-button 
             type="submit" 
             [disabled] ="!heroForm.valid"
-            (click)="onSave()"
-        >Create</button>
+            (click)="isEdit ? onEdit() : onCreate()"
+        >
+        {{isEdit ? "Save changes" : "Create"}}
+        </button>
         <button mat-stroked-button (click)="onCancel()">Cancel</button>
     </div>
 </div>
