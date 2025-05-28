@@ -7,21 +7,44 @@ import { HeroCardComponent } from './hero-card/hero-card.component';
 import { MatDialog } from '@angular/material/dialog';
 import { HeroFormComponent } from './hero-form/hero-form.component';
 import { MatButtonModule } from '@angular/material/button';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+
+const initialPagination: PageEvent = {
+  length: 50,
+  pageSize: 2,
+  pageIndex: 0
+}
 
 @Component({
   selector: 'app-heroes',
-  imports: [MatListModule, MatPaginatorModule, HeroCardComponent, MatButtonModule],
+  imports: [
+    ReactiveFormsModule,
+    FormsModule, 
+    HeroCardComponent, 
+    MatButtonModule, 
+    MatFormFieldModule, 
+    MatIconModule,
+    MatInputModule,
+    MatListModule, 
+    MatPaginatorModule
+  ],
+  providers: [
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}
+  ],
   templateUrl: './heroes.component.html',
   styleUrl: './heroes.component.css'
 })
 export class HeroesComponent {
   
   pagedHeroes: Hero[] = [];
-  pagination: PageEvent = {
-    length: 50,
-    pageSize: 2,
-    pageIndex: 0
-  }
+  pagination: PageEvent = initialPagination;
+
+  searchForm = new FormGroup({
+    searchControl: new FormControl()
+  });
 
   private heroesService: HeroesService = inject(HeroesService);
 
@@ -44,6 +67,16 @@ export class HeroesComponent {
       pageIndex: pageEvent.pageIndex
     }
 
+    this.getPagedHeroes();
+  }
+
+  onSearch(valueToSearch: string) {
+    this.pagedHeroes = this.heroesService.searchByName(valueToSearch, initialPagination);
+    this.pagination.length = this.pagedHeroes.length;
+  }
+
+  clearSearch() {
+    this.searchForm.reset();
     this.getPagedHeroes();
   }
 

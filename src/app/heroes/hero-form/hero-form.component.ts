@@ -15,7 +15,7 @@ const defaultImageUrl = "https://www.shutterstock.com/image-vector/generic-super
   selector: 'app-hero-form',
   imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatButtonModule],
   providers: [
-    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}},
   ],
   templateUrl: './hero-form.component.html',
   styleUrl: './hero-form.component.css'

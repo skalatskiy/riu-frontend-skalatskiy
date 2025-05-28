@@ -3,6 +3,16 @@
     gap: 10px;
 }
 
+.heroes-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    .search-field {
+        max-height: 48px;
+    }
+}
+
 .add-hero-button {
     margin-top: 20px;
     margin-bottom: 20px;
