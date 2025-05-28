@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeroCardComponent } from './hero-card.component';
-import { Hero } from '../schemas/hero.interface';
+import { Hero } from '../../schemas/hero.interface';
 
 const dummyHero: Hero = {
   id: "superdummy",

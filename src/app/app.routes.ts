@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
+import { HeroPageComponent } from './heroes/components/hero-page/hero-page.component';
 import { HeroesComponent } from './heroes/heroes.component';
-import { HeroPageComponent } from './heroes/hero-page/hero-page.component';
 
 export const routes: Routes = [
     { path: '',   redirectTo: '/heroes', pathMatch: 'full' },

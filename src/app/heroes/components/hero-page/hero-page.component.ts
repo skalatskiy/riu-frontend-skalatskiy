@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HeroesService } from '../services/heroes.service';
-import { Hero } from '../schemas/hero.interface';
+import { HeroesService } from '../../services/heroes.service';
+import { Hero } from '../../schemas/hero.interface';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -35,9 +35,7 @@ export class HeroPageComponent {
     const heroId = this.route.snapshot.paramMap.get('heroId');
 
     if(heroId) {
-      console.log('heroId: ', heroId);
       this.hero = this.heroesService.getHero(heroId);
-      console.log('hero: ', this.hero);
     } else {
       throw new Error('No user found with this ID');
     }
