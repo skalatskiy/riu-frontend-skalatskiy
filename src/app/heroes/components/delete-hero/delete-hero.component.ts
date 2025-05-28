@@ -1,7 +1,7 @@
 import { Component, Inject, inject } from '@angular/core';
-import { HeroesService } from '../services/heroes.service';
+import { HeroesService } from '../../services/heroes.service';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
-import { Hero } from '../schemas/hero.interface';
+import { Hero } from '../../schemas/hero.interface';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 

@@ -1,11 +1,11 @@
-import { HeroesService } from './../services/heroes.service';
+import { HeroesService } from '../../services/heroes.service';
 import { Component, Inject, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import {v4 as uuid} from 'uuid';
-import { Hero } from '../schemas/hero.interface';
+import { Hero } from '../../schemas/hero.interface';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 

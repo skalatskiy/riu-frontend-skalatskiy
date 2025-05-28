@@ -1,6 +1,6 @@
 import { Component, inject, Input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { Hero } from '../schemas/hero.interface';
+import { Hero } from '../../schemas/hero.interface';
 import { MatCardModule } from '@angular/material/card';
 import { Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
