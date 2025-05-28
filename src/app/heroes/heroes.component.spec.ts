@@ -18,10 +18,14 @@ const MockInitialPagination: PageEvent = {
   pageIndex: 0
 }
 
+function fakeSearchByNameFn(valueToSearch: string) {
+  return MockHeroes.filter((hero) => hero.name.toLowerCase().includes(valueToSearch.toLowerCase()))
+}
+
 class MockHeroesService {
   heroes = () => MockHeroes;
   getPagedHeroes = jasmine.createSpy().and.returnValue(MockHeroes.slice(0, 2));
-  searchByName = jasmine.createSpy().and.callFake((term: string) => MockHeroes.filter(h => h.name.toLowerCase().includes(term.toLowerCase())));
+  searchByName = jasmine.createSpy().and.callFake(fakeSearchByNameFn);
 }
 
 describe('HeroesComponent', () => {
