@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:RIU-Frontend-Skalatskiy": "node dist/riu-frontend-skalatskiy/server/server.mjs"
+    "serve": "node dist/riu-frontend-skalatskiy/server/server.mjs"
   },
   "private": true,
   "dependencies": {
