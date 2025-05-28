@@ -21,7 +21,7 @@ const dummyHeroes: Hero[] = [
     providedIn: 'root'
   })
   export class HeroesService {
-    private heroes: Signal<Hero[]> = signal(dummyHeroes);
+    heroes: Signal<Hero[]> = signal(dummyHeroes);
 
     getHeroes(): Hero[] {
         return this.heroes();
