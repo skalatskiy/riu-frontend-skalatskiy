@@ -19,5 +19,9 @@
 <mat-card-actions>
     <button mat-button (click)="goToDetails(hero)">See details</button>
     <button mat-button (click)="openEdit(hero)">Edit</button>
+    <button mat-button color="warn" (click)="deleteHero(hero)">
+        Delete
+        <mat-icon matSuffix  aria-label="Delete hero">delete</mat-icon>
+    </button>
   </mat-card-actions>
 </mat-card>

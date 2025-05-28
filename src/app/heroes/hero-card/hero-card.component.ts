@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { HeroFormComponent } from '../hero-form/hero-form.component';
+import { DeleteHeroComponent } from '../delete-hero/delete-hero.component';
 
 const defaultImageUrl = "https://www.shutterstock.com/image-vector/generic-superhero-figure-standing-proud-260nw-303136100.jpg";
 
@@ -32,5 +33,9 @@ export class HeroCardComponent {
 
   openEdit(hero: Hero) {
     this.dialog.open(HeroFormComponent, {data: hero});
+  }
+
+  deleteHero(hero: Hero) {
+    this.dialog.open(DeleteHeroComponent, {data: hero});
   }
 }
