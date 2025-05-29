@@ -3,5 +3,6 @@
 }
 
 .hero-image {
-    border-radius: 12px;
+    border-radius: 6px;
+    object-fit: cover;
 }
