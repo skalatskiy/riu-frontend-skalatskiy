@@ -18,6 +18,8 @@ const initialPagination: PageEvent = {
   pageIndex: 0
 }
 
+const PAGE_SIZE_OPTIONS = [2, 5, 10, 25, 100];
+
 @Component({
   selector: 'app-heroes',
   imports: [
@@ -41,6 +43,7 @@ export class HeroesComponent {
   
   pagedHeroes: Hero[] = [];
   pagination: PageEvent = initialPagination;
+  pageSizeOptions = PAGE_SIZE_OPTIONS;
 
   searchForm = new FormGroup({
     searchControl: new FormControl()
