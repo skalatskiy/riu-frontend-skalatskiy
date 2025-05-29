@@ -14,7 +14,7 @@ const dummyHeroes: Hero[] = [
     },
     {
         id: 'dummy2',
-        name: "Spideman",
+        name: "Spiderman",
         superpower: "Spider strength",
         imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9dEhbjgmjNQc_JAJJYvv4waAPpHilh4Ps8A&s",
         description: "Saca telaraña de sitios dudosos",
