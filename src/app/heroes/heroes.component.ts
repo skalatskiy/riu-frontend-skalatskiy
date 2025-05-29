@@ -1,5 +1,5 @@
 import { HeroesService } from './services/heroes.service';
-import { Component, effect, inject } from '@angular/core';
+import { Component, effect, inject, signal } from '@angular/core';
 import {MatPaginatorModule, PageEvent} from '@angular/material/paginator';
 import { Hero } from './schemas/hero.interface';
 import { MatListModule } from '@angular/material/list';
@@ -49,11 +49,16 @@ export class HeroesComponent {
     searchControl: new FormControl()
   });
 
+  private searchValue: string | null = null;
   private heroesService: HeroesService = inject(HeroesService);
 
   constructor(private dialog: MatDialog) {
     effect(() => {
       if (this.heroesService.heroes()) {
+        if(this.searchValue) {
+          return this.onSearch(this.searchValue);
+        }
+
         this.getPagedHeroes();
       }
     })
@@ -74,11 +79,17 @@ export class HeroesComponent {
   }
 
   onSearch(valueToSearch: string) {
-    this.pagedHeroes = this.heroesService.searchByName(valueToSearch, initialPagination);
+    this.searchValue = valueToSearch;
+
+    const pagination = this.pagination;
+    pagination.pageIndex = 0;
+
+    this.pagedHeroes = this.heroesService.searchByName(valueToSearch, pagination);
     this.pagination.length = this.pagedHeroes.length;
   }
 
   clearSearch() {
+    this.searchValue = null;
     this.searchForm.reset();
     this.getPagedHeroes();
   }
